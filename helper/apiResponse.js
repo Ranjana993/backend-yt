@@ -7,8 +7,8 @@ class apiResponse {
         this.statusCode = statusCode,
             this.data = data,
             this.message = message,
-            this.success = false
+            this.success = statusCode < 400
     }
 }
 
-module.exports= { apiResponse } 
+module.exports = { apiResponse } 

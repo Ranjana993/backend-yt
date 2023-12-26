@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./database/dbConnect");
 const router = require("./routes/user.route");
+const cookieParser = require("cookie-parser")
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -12,6 +13,8 @@ const PORT = process.env.PORT || 8000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser())
+
 app.use("/", router)
 
 connectDB()   //! Connect to the database
